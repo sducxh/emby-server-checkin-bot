@@ -1,5 +1,5 @@
 # emby-server-checkin-bot
-# Terminus终点站、卷毛鼠emby公益服签到机器人
+# 终点站、卷毛鼠emby公益服签到机器人
 参考[Orzlee telegram-自动签到](https://www.orzlee.com/Just-write-something/2022/01/05/telegram-automatic-checkin.html)，利用[python-telegram](https://github.com/alexander-akhmetov/python-telegram)库实现
 
 ## 0x00 系统环境准备
@@ -45,7 +45,7 @@ pip install python-telegram pyinstaller
 
 cm.py为Terminus终点站签到脚本，jms.py为卷毛鼠公益服签到脚本，libtdjson.so为编译好的 [tdlib](https://github.com/tdlib/td) 文件。根据需求自行选择脚本进行编辑，两者编辑方式相同，以下以cm.py为例。
 
-编辑cm.py脚本输入上一步获取的api_id 和 api_hash。支持多账号，多账号配置根据脚本中提示自行配置即可。
+编辑cm.py脚本输入上一步获取的api_id 和 api_hash。支持多账号，多账号配置根据脚本中提示自行配置。
 ```
 nano cm.py
 ```
@@ -59,9 +59,9 @@ tg = Telegram(
     library_path='/home/your_login_name/emby-server-checkin-bot/libtdjson.so', # 填入libtdjson.so的绝对路径
 )
 ```
-编辑后保存退出即可。
+编辑后保存退出。
 ## 0x03 运行脚本签到
-运行脚本，第一次登陆需要输入两步验证码，根据提示输入即可。
+运行脚本，第一次登陆需要输入两步验证码，根据提示输入。
 ```
 python3 cm.py
 ```
@@ -71,7 +71,7 @@ python3 cm.py
 ```
 pyinstaller -F cm.py
 ```
-打包成功后再一次执行dist/cm测试是否工作正常
+打包成功后运行dist/cm测试是否工作正常
 ```
 dist/cm
 ```
@@ -79,7 +79,7 @@ dist/cm
 ```
 crontab -e
 ```
-输入
+在末行输入
 ```
 1 16 * * * /home/your_login_name/emby-server-checkin-bot/dist/cm
 ```
