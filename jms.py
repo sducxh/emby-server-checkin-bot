@@ -9,7 +9,7 @@ for accn in an:
             api_hash='your api hash', # 填入 api hash
             phone='your phone number', # Telegram账号
             database_encryption_key='passw0rd!',
-            library_path='/home/your_login_name/python-telegram/libtdjson.so', # 填入libtdjson.so的绝对路径
+            library_path='/home/your_login_name/emby-server-checkin-bot/libtdjson.so', # 填入libtdjson.so的绝对路径
         )
     # #多账号支持
     # if accn == 2:
@@ -18,7 +18,7 @@ for accn in an:
     #         api_hash='your api hash', # 填入 api hash
     #         phone='your phone number', # Telegram账号
     #         database_encryption_key='passw0rd!',
-    #         library_path='path to libtdjson.so', # 填入libtdjson.so的绝对路径
+    #         library_path='/home/your_login_name/emby-server-checkin-bot/libtdjson.so', # 填入libtdjson.so的绝对路径
     #     )
 
     tg.login()

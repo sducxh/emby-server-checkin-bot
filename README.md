@@ -3,8 +3,13 @@
 参考[Orzlee telegram-自动签到](https://www.orzlee.com/Just-write-something/2022/01/05/telegram-automatic-checkin.html)，利用[python-telegram](https://github.com/alexander-akhmetov/python-telegram)库实现
 
 ## 0x00 系统环境准备
-在Ubuntu 20.04 LTS上测试成功，其余环境自行测试
+在Ubuntu 20.04 LTS上测试成功，其余环境自行测试。
 
+从GitHub clone 本repo:
+```
+cd ~
+git clone https://github.com/elecxwr/emby-server-checkin-bot.git
+```
 ## 0x01 Python环境
 检查所装Python版本
 ```
@@ -23,9 +28,7 @@ sudo apt install -y python3-venv
 ```
 创建虚拟环境
 ```
-cd ~
-mkdir python-telegram
-cd python-telegram
+cd emby-server-checkin-bot
 python3 -m venv my_env
 ```
 进入虚拟环境
@@ -40,10 +43,6 @@ pip install python-telegram pyinstaller
 ## 0x02 Telegram账号登陆
 首先前往[Telegram官网](https://my.telegram.org)申请Application API。登陆后选择API development tools，自行填写信息后提交后即可获取 api_id 和 api_hash。若显示error可能为代理问题，更换代理后尝试。
 
-从GitHub下载脚本
-```
-git clone https://github.com/elecxwr/emby-server-checkin-bot.git
-```
 cm.py为Terminus终点站签到脚本，jms.py为卷毛鼠公益服签到脚本，libtdjson.so为编译好的 [tdlib](https://github.com/tdlib/td) 文件。根据需求自行选择脚本进行编辑，两者编辑方式相同，以下以cm.py为例。
 
 编辑cm.py脚本输入上一步获取的api_id 和 api_hash。支持多账号，多账号配置根据脚本中提示自行配置即可。
@@ -57,7 +56,7 @@ tg = Telegram(
     api_hash='your api hash', # 填入 api hash
     phone='your phone number', # Telegram账号
     database_encryption_key='passw0rd!',
-    library_path='/home/your_login_name/python-telegram/libtdjson.so', # 填入libtdjson.so的绝对路径
+    library_path='/home/your_login_name/emby-server-checkin-bot/libtdjson.so', # 填入libtdjson.so的绝对路径
 )
 ```
 编辑后保存退出即可。
@@ -82,7 +81,7 @@ crontab -e
 ```
 输入
 ```
-1 16 * * * /home/your_login_name/python-telegram/dist/cm
+1 16 * * * /home/your_login_name/emby-server-checkin-bot/dist/cm
 ```
 保存退出后自动签到程序将在 UTC+8 的 0:01 分自动签到
 
