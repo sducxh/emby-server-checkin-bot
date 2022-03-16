@@ -72,14 +72,13 @@ for accn in an:
                         else:
                             print(f'getCallbackQueryAnswer: {result.update}')
                         break
-
+    tg.add_update_handler('updateNewMessage', send_verification_code)                   
+    result = tg.get_chats()
+    result.wait()
     result=tg.send_message(
             chat_id=1260610044,
             text="/checkin", # 发送签到指令
         )
     result.wait()
-
-    tg.add_update_handler('updateNewMessage', send_verification_code)
-
-    time.sleep(15) # 等待15秒签到完毕后退出程序
+    time.sleep(10) # 等待15秒签到完毕后退出程序
     tg.stop()  
