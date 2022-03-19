@@ -33,7 +33,7 @@ for accn in an:
             # 提取问题并且计算
             question = update['message']['content']['text']['text']
             print(question)
-            numtocal=re.findall(r"-?[1-999]\d*",question)
+            numtocal=re.findall(r"-?[0-999]\d*",question)
             if len(numtocal) > 1:
                 a=numtocal[0]
                 b=numtocal[1]
