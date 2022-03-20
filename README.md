@@ -49,14 +49,13 @@ cm.py为Terminus终点站签到脚本，jms.py为卷毛鼠公益服签到脚本�
 ```
 nano cm.py
 ```
-自行替换脚本以下章节中api_id, api_hash, Phone number, 以及libtdjson.so绝对路径中当前ubuntu账户名。
+自行替换脚本以下章节中api_id, api_hash, Phone number。
 ```python
 tg = Telegram(
     api_id='your api id', # 填入api id
     api_hash='your api hash', # 填入 api hash
     phone='your phone number', # Telegram账号
-    database_encryption_key='passw0rd!',
-    library_path='/home/your_login_name/emby-server-checkin-bot/libtdjson.so', # 填入libtdjson.so的绝对路径
+    ...
 )
 ```
 编辑后保存退出。
@@ -81,7 +80,7 @@ crontab -e
 ```
 在末行输入
 ```
-1 16 * * * /home/your_login_name/emby-server-checkin-bot/dist/cm
+1 16 * * * /home/$(id -un)/emby-server-checkin-bot/dist/cm
 ```
 保存退出后自动签到程序将在 UTC+8 的 0:01 分自动签到
 
