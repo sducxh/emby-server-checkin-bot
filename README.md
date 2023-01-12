@@ -35,9 +35,9 @@ python3 -m venv my_env
 ```
 source my_env/bin/activate
 ```
-安装 python-telegram 以及打包所用 pyinstaller
+安装 python-telegram 以及打包所用 pyinstaller 验证码识别 ddddocr
 ```
-pip install python-telegram pyinstaller
+pip install python-telegram pyinstaller ddddocr
 ```
 
 ## 0x02 Telegram账号登陆
